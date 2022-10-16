@@ -6,6 +6,7 @@
 
 int _putchar(char);
 int print_c(va_list);
+int print_spec_symbol(char);
 
 /**
  * struct fmt - struct to match a specifier to a function that processes it
