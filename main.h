@@ -6,6 +6,7 @@
 
 int _putchar(char);
 int print_c(va_list);
+int print_s(va_list s);
 int print_spec_symbol(void);
 
 /**
