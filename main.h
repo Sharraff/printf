@@ -4,8 +4,11 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-int _putchar(char c);
+int _putchar(char);
+int print_c(va_list);
 int print_s(va_list s);
+int print_spec_symbol(void);
+
 
 /**
  * struct fmt - struct to match a specifier to a function that processes it
