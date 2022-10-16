@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-int _putchar(char c);
+int _putchar(char);
 int print_c(va_list);
 
 /**
