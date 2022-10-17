@@ -16,7 +16,7 @@ int print_s(va_list s)
 		str = "(null)";
 	while (str[i])
 	{
-	 	_putchar(str[i++]);
+		_putchar(str[i++]);
 	}
 	return (i);
 }
