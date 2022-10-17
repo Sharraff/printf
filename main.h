@@ -9,6 +9,7 @@ int print_c(va_list c);
 int print_s(va_list s);
 int print_format(const char *format, va_list args);
 int _printf(const char *format, ...);
+int print_b(va_list b);
 
 /**
  * struct fmt - struct to match a specifier to a function that processes it
