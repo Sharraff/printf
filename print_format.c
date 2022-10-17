@@ -86,13 +86,15 @@ int print_spec(char spec, va_list args)
 		{'c', print_c},
 		{'s', print_s}
 	};
-	int i;
+	int i, length;
 
-	for (i = 0; i < NUM_OF_SPEC; ++i)
+	for (i = 0; i < NUM_OF_SPECS; ++i)
 	{
 		if (spec == f_specs[i].spec)
-			return (f_specs[i].func(args));
+			length = f_specs[i].func(args);
 	}
+
+	return (length);
 }
 
 /**
