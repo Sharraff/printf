@@ -10,9 +10,11 @@ int print_positive_int(int num);
  */
 int print_int(va_list integer)
 {
-	int length = 0;
-	int num = va_arg(integer, int);
+	int length = 0, num;
+	unsigned int n;
 
+	n = va_arg(integer, int);
+	num = n;
 	if (num < 0)
 	{
 		length += _putchar('-');
@@ -32,8 +34,10 @@ int print_int(va_list integer)
  */
 int print_positive_int(int num)
 {
-	if (num < 10)
-		return (_putchar(num + '0'));
+	unsigned int n = num;
 
-	return (print_positive_int(num / 10) + print_positive_int(num % 10));
+	if (n < 10)
+		return (_putchar(n + '0'));
+
+	return (print_positive_int(n / 10) + print_positive_int(n % 10));
 }
