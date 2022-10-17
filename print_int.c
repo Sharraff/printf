@@ -8,18 +8,20 @@ int print_positive_int(int num);
  *
  * Return: the length of the integer printed
  */
-int print_int(int integer)
+int print_int(va_list integer)
 {
 	int length = 0;
 	int num = va_arg(integer, int);
 
-	if (integer < 0)
+	if (num < 0)
 	{
 		length += _putchar('-');
-		integer *= -1;
+		num *= -1;
 	}
 
-	length += recursive_print_int(num);
+	length += print_positive_int(num);
+
+	return (length);
 }
 
 /**
@@ -28,7 +30,7 @@ int print_int(int integer)
  *
  * Return: the length of the printed integer
  */
-int recursive_print_int(int num)
+int print_positive_int(int num)
 {
 	if (num < 10)
 		return (_putchar(num + '0'));

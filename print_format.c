@@ -61,7 +61,7 @@ int print_format(const char *format, va_list args)
  */
 int validate_spec(char spec)
 {
-	char *specs = "cs";
+	char *specs = "csid";
 	int i;
 
 	for (i = 0; specs[i]; ++i)
