@@ -27,6 +27,9 @@ int print_format(const char *format, va_list args)
 				if (format[i + 1] == '\0')
 					return (-1);
 
+				if (format[i] == ' ')
+					length++;
+
 				while (format[i] == ' ')
 					i++;
 
@@ -114,7 +117,7 @@ int print_error(char prev_char, char spec)
 
 	length += _putchar('%');
 	if (prev_char == ' ')
-		length += _putchar(' ');
+		_putchar(' ');
 
 	length += _putchar(spec);
 	return (length);
