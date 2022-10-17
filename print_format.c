@@ -27,7 +27,7 @@ int print_format(const char *format, va_list args)
 				if (format[i + 1] == '\0')
 					return (-1);
 
-				if (format[i] == ' ')
+				if (format[++i] == ' ')
 					length++;
 
 				while (format[i] == ' ')
