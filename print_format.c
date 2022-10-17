@@ -109,7 +109,7 @@ int print_spec(char spec, va_list args)
  */
 int print_error(char prev_char, char spec)
 {
-	int length;
+	int length = 0;
 
 	length += _putchar('%');
 	if (prev_char == ' ')
