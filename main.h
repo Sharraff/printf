@@ -7,7 +7,7 @@
 int _putchar(char c);
 int print_c(va_list c);
 int print_s(va_list s);
-int print_format(char *fmt, va_list args);
+int print_format(char *format, va_list args);
 int print_spec_symbol(void);
 
 
