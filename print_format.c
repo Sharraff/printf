@@ -96,7 +96,7 @@ int print_spec(char spec, va_list args)
 }
 
 /**
- * - print_error - prints the appropriate characters if the given spec is wrong
+ * print_error - prints the appropriate characters if the given spec is wrong
  * @prev_char: the previous char to the specifier in the format string
  * @spec: the given specifier
  *
