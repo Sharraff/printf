@@ -12,6 +12,7 @@ int print_b(va_list b);
 int print_format(const char *format, va_list args);
 int _printf(const char *format, ...);
 int print_x(va_list x);
+int print_X(va_list X);
 int print_o(va_list num);
 int print_u(va_list integer);
 
