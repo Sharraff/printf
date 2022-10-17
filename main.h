@@ -7,9 +7,8 @@
 int _putchar(char c);
 int print_c(va_list c);
 int print_s(va_list s);
-int print_format(char *fmt, va_list args);
-int print_spec_symbol(void);
-
+int print_format(const char *format, va_list args);
+int _printf(const char *format, ...);
 
 /**
  * struct fmt - struct to match a specifier to a function that processes it
