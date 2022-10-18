@@ -14,7 +14,7 @@ int _putchar(char c)
 
 	if (c == -1 || i == 1024)
 	{
-		write(STDOUT, &buffer, i);
+		write(STDOUT, buffer, i);
 		i = 0;
 	}
 
