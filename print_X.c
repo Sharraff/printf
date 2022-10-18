@@ -28,18 +28,8 @@ int print_X_recursive(unsigned int num)
 {
 	if (num < 16)
 	{
-		if (num == 10)
-			return (_putchar('A'));
-		else if (num == 11)
-			return (_putchar('B'));
-		else if (num == 12)
-			return (_putchar('C'));
-		else if (num == 13)
-			return (_putchar('D'));
-		else if (num == 14)
-			return (_putchar('E'));
-		else if (num == 15)
-			return (_putchar('F'));
+		if (num > 9)
+			return (_putchar('A' + (num - 10)));
 
 		return (_putchar(num + '0'));
 	}

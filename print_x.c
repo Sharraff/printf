@@ -28,18 +28,11 @@ int print_x_recursive(unsigned int num)
 {
 	if (num < 16)
 	{
-		if (num == 10)
-			return (_putchar('a'));
-		else if (num == 11)
-			return (_putchar('b'));
-		else if (num == 12)
-			return (_putchar('c'));
-		else if (num == 13)
-			return (_putchar('d'));
-		else if (num == 14)
-			return (_putchar('e'));
-		else if (num == 15)
-			return (_putchar('f'));
+		if (num > 9)
+		{
+			int dif = num - 10;
+			return (_putchar('a' + dif));
+		}
 
 		return (_putchar(num + '0'));
 	}
