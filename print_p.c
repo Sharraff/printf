@@ -14,7 +14,7 @@ int print_p(va_list pointer)
 	size_t p = (size_t) va_arg(pointer, void *);
 
 	if (!p)
-		return (_puts("(null)"));
+		return (_puts("(nil)"));
 
 	length = _puts("0x") + print_p_recursive(p);
 
