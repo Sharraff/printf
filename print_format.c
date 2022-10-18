@@ -30,13 +30,14 @@ int print_format(const char *format, va_list args)
 				if (format[i + 1] == '\0')
 					return (-1);
 
+				i++;
 				while (validate_flag(format[i], &flags))
 					i++;
 
 				if (format[i] == '%')
 					length += _putchar('%');
 
-				else if (validate_spec(format[i]))
+				if (validate_spec(format[i]))
 					length += print_spec(format[i], args, &flags);
 
 				else
@@ -93,8 +94,7 @@ int print_spec(char spec, va_list args, flag *f)
 		{'X', print_X},
 		{'o', print_o},
 		{'u', print_u},
-		{'p', print_p},
-		{'S', print_S}
+		{'p', print_p}
 	};
 	int i, length;
 
