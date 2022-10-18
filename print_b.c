@@ -1,33 +1,33 @@
-#include "main.h"
+include "main.h"
+
+int print_b_recursive(unsigned int num);
 /**
- * print_b - A function that prints an unsigned int i in binary notation
- * @b: unsigned int to print
- * Return: number of printed digits
+ * print_b - prints an unsigned int in octal format
+ * @b: given unsigned int
+ *
+ * Return: the length of the characters printed
  */
 int print_b(va_list b)
 {
-	unsigned int n, m = 2147483648;
-	unsigned int j = 1;
-	unsigned int sum = 0;
-	unsigned int a[32];
-	int counter = 0;
+	int length = 0;
+	unsigned int n;
 
 	n = va_arg(b, unsigned int);
-	a[0] = n / m;
+	length = print_b_recursive(n);
 
-	for (; j < 32; j++)
-	{
-		m /= 2;
-		a[j] = (n / m) % 2;
-	}
-	for (j = 0; j < 32; j++)
-	{
-		sum += a[j];
-		if (sum || j == 31)
-		{
-			_putchar('0' + a[j]);
-			counter++;
-		}
-	}
-	return (counter);
+	return (length);
+}
+
+/**
+ * print_b_recursive - prints a given number in octal format
+ * @num: the given number
+ *
+ * Return: length of char printed
+ */
+int print_b_recursive(unsigned int num)
+{
+	if (num < 2)
+		return (_putchar(num + '0'));
+
+	return (print_b_recursive(num / 2) + print_b_recursive(num % 2));
 }
