@@ -48,7 +48,7 @@ int _puts(char *str)
 
 /**
  * _strlen - computes the len of str
- * @@str: the str
+ * @str: the str
  *
  * Return: len of str
  */
