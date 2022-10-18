@@ -13,14 +13,13 @@ int print_int(va_list integer, flag *f)
 	unsigned long int n;
 
 	num = va_arg(integer, int);
-/**
- *	if (f->space)
- *
- *		length++;
- *
- *	if (f->plus && num >= 0)
- *		length += _putchar('+');
- */
+	if (f->space)
+
+		length++;
+
+	if (f->plus && num >= 0)
+		length += _putchar('+');
+
 	if (num < 0)
 	{
 		length += _putchar('-');
