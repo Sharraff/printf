@@ -1,40 +1,41 @@
 #include "main.h"
-#include <stdlib.h>
+
+int print_x_recursive(unsigned int num);
 /**
- * print_x - A function that prints an ascii char value in lowercase
- * hexadecimal
- * @x: char to print
- * Return: number of printed characters
+ * print_x - prints an unsigned int in octal format
+ * @x: given unsigned int
+ *
+ * Return: the length of the characters printed
  */
 int print_x(va_list x)
 {
-	unsigned int a[8];
-	unsigned int j = 1;
-	unsigned int m = 268435456;
+	int length = 0;
 	unsigned int n;
-	unsigned int sum = 0;
-	char diff;
-	int counter = 0;
 
 	n = va_arg(x, unsigned int);
-	diff = 'a' - ':';
-	a[0] = n / m;
-	for (; j < 8; j++)
+	length = print_x_recursive(n);
+
+	return (length);
+}
+
+/**
+ * print_x_recursive - prints a given number in octal format
+ * @num: the given number
+ *
+ * Return: length of char printed
+ */
+int print_x_recursive(unsigned int num)
+{
+	if (num < 16)
 	{
-		m /= 16;
-		a[j] = (n / m) % 16;
-	}
-	for (j = 0; j < 8; j++)
-	{
-		sum += a[j];
-		if (sum || j == 7)
+		if (num > 9)
 		{
-			if (a[j] < 10)
-				_putchar('0' + a[j]);
-			else
-				_putchar('0' + diff + a[j]);
-			counter++;
+			int dif = num - 10;
+			return (_putchar('a' + dif));
 		}
+
+		return (_putchar(num + '0'));
 	}
-	return (counter);
+
+	return (print_x_recursive(num / 16) + print_x_recursive(num % 16));
 }

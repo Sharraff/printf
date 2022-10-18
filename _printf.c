@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	counter = print_format(format, ap);
+	_putchar(-1);
 	va_end(ap);
 
 	return (counter);

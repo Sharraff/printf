@@ -16,6 +16,7 @@ int print_X(va_list X);
 int print_o(va_list num);
 int print_u(va_list integer);
 int print_S(va_list S);
+int print_p(va_list pointer);
 
 /**
  * struct fmt - struct to match a specifier to a function that processes it

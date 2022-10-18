@@ -27,7 +27,7 @@ int print_int(va_list integer)
 }
 
 /**
- * recursive_print_int - print a given positive integer
+ * print_positive_int - print a given positive integer
  * @num: the given integer to be printed
  *
  * Return: the length of the printed integer
