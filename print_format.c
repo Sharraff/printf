@@ -1,6 +1,6 @@
 #include "main.h"
 
-#define NUM_OF_SPECS 5
+#define NUM_OF_SPECS 8
 
 int print_error(char prev_char, char spec);
 int print_spec(char spec, va_list args);
@@ -26,9 +26,6 @@ int print_format(const char *format, va_list args)
 			{
 				if (format[i + 1] == '\0')
 					return (-1);
-
-				if (format[++i] == ' ')
-					length++;
 
 				while (format[i] == ' ')
 					i++;
@@ -61,7 +58,7 @@ int print_format(const char *format, va_list args)
  */
 int validate_spec(char spec)
 {
-	char *specs = "csidb";
+	char *specs = "csidbxou";
 	int i;
 
 	for (i = 0; specs[i]; ++i)
@@ -87,7 +84,10 @@ int print_spec(char spec, va_list args)
 		{'s', print_s},
 		{'d', print_int},
 		{'i', print_int},
-		{'b', print_b}
+		{'b', print_b},
+		{'x', print_x},
+		{'o', print_o},
+		{'u', print_u}
 	};
 	int i, length;
 
@@ -109,10 +109,12 @@ int print_spec(char spec, va_list args)
  */
 int print_error(char prev_char, char spec)
 {
-	_putchar('%');
-	if (prev_char == ' ')
-		_putchar(' ');
+	int length = 0;
 
-	_putchar(spec);
-	return (2);
+	length += _putchar('%');
+	if (prev_char == ' ')
+		length += _putchar(' ');
+
+	length += _putchar(spec);
+	return (length);
 }
