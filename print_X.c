@@ -1,40 +1,48 @@
 #include "main.h"
-#include <stdlib.h>
+
+int print_X_recursive(unsigned int num);
 /**
- * print_X - A function that prints an ascii character
- * value in uppercase hexadecimal
- * @X: char to print
- * Return: number of printed characters
+ * print_X - prints an unsigned int in octal format
+ * @X: given unsigned int
+ *
+ * Return: the length of the characters printed
  */
 int print_X(va_list X)
 {
-	unsigned int a[8];
-	unsigned int j = 1;
-	unsigned int m = 268435456;
+	int length = 0;
 	unsigned int n;
-	unsigned int sum = 0;
-	char diff;
-	int counter;
 
 	n = va_arg(X, unsigned int);
-	diff = 'A' - ':';
-	a[0] = n / m;
-	for (; j < 8; j++)
+	length = print_X_recursive(n);
+
+	return (length);
+}
+
+/**
+ * print_X_recursive - prints a given number in octal format
+ * @num: the given number
+ *
+ * Return: length of char printed
+ */
+int print_X_recursive(unsigned int num)
+{
+	if (num < 16)
 	{
-		m /= 16;
-		a[j] = (n / m) % 16;
+		if (num == 10)
+			return (_putchar('A'));
+		else if (num == 11)
+			return (_putchar('B'));
+		else if (num == 12)
+			return (_putchar('C'));
+		else if (num == 13)
+			return (_putchar('D'));
+		else if (num == 14)
+			return (_putchar('E'));
+		else if (num == 15)
+			return (_putchar('F'));
+
+		return (_putchar(num + '0'));
 	}
-	for (j = 0; j < 8; j++)
-	{
-		sum += a[j];
-		if (sum || j == 7)
-		{
-			if (a[j] < 10)
-				_putchar('0' + a[j]);
-			else
-				_putchar('0' + diff + a[j]);
-			counter++;
-		}
-	}
-	return (counter);
+
+	return (print_X_recursive(num / 16) + print_X_recursive(num % 16));
 }
