@@ -9,7 +9,7 @@ int print_x_recursive(unsigned int num);
  */
 int print_x(va_list x)
 {
-	int length = 0;
+	int length;
 	unsigned int n;
 
 	n = va_arg(x, unsigned int);
@@ -29,10 +29,7 @@ int print_x_recursive(unsigned int num)
 	if (num < 16)
 	{
 		if (num > 9)
-		{
-			int dif = num - 10;
-			return (_putchar('a' + dif));
-		}
+			return (_putchar('a' + (num - 10)));
 
 		return (_putchar(num + '0'));
 	}
