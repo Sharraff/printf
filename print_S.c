@@ -28,7 +28,6 @@ int print_S(va_list S)
 		else
 		{
 			_putchar(arr[i++]);
-			count++;
 		}
 	}
 	return (count);
