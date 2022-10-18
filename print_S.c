@@ -21,7 +21,8 @@ int print_S(va_list S)
 		{
 			_putchar('\\');
 			_putchar('x');
-			count = count + print_X(S);
+			count += 2;
+			count += print_X(S);
 
 		}
 		else

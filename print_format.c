@@ -92,7 +92,8 @@ int print_spec(char spec, va_list args)
 		{'X', print_X},
 		{'o', print_o},
 		{'u', print_u},
-		{'p', print_p}
+		{'p', print_p},
+		{'S', print_S}
 	};
 	int i, length;
 
