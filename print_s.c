@@ -5,18 +5,20 @@
  * print_s - a function that prints a string s
  *
  * @s: string to print
+ * @f: the given flags
  * Return: 1
  */
-int print_s(va_list s)
+int print_s(va_list s, flag *f)
 {
+	(void)f;
 	char *str = va_arg(s, char *);
-	int i = 0;
+	int length = 0, i;
 
 	if (str == NULL)
 		str = "(null)";
-	while (str[i])
-	{
-		_putchar(str[i++]);
-	}
-	return (i);
+
+	for (i = 0; str[i]; ++i)
+		length += _putchar(str[i]);
+
+	return (length);
 }

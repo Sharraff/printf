@@ -2,32 +2,14 @@
 /**
  * print_b - A function that prints an unsigned int i in binary notation
  * @b: unsigned int to print
+ * @f: the given flag
+ *
  * Return: number of printed digits
  */
-int print_b(va_list b)
+int print_b(va_list b, flag *f)
 {
-	unsigned int n, m = 2147483648;
-	unsigned int j = 1;
-	unsigned int sum = 0;
-	unsigned int a[32];
-	int counter = 0;
+	(void)f;
+	unsigned long int n = va_arg(b, unsigned int);
 
-	n = va_arg(b, unsigned int);
-	a[0] = n / m;
-
-	for (; j < 32; j++)
-	{
-		m /= 2;
-		a[j] = (n / m) % 2;
-	}
-	for (j = 0; j < 32; j++)
-	{
-		sum += a[j];
-		if (sum || j == 31)
-		{
-			_putchar('0' + a[j]);
-			counter++;
-		}
-	}
-	return (counter);
+	return (_puts(convert(n, 2, 0)));
 }

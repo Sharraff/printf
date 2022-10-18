@@ -1,33 +1,21 @@
 #include "main.h"
 
-int print_o_recursive(unsigned int num);
 /**
  * print_o - prints an unsigned int in octal format
  * @num: given unsigned int
+ * @f: pointer to the given
  *
  * Return: the length of the characters printed
  */
-int print_o(va_list num)
+int print_o(va_list num, flag *f)
 {
 	int length = 0;
-	unsigned int n;
+	unsigned long int n = va_arg(num, unsigned int);
 
-	n = va_arg(num, unsigned int);
-	length = print_o_recursive(n);
+	if (f->hash)
+		length += _putchar('0');
+
+	length += _puts(convert(n, 8, 0));
 
 	return (length);
-}
-
-/**
- * print_o_recursive - prints a given number in octal format
- * @num: the given number
- *
- * Return: length of char printed
- */
-int print_o_recursive(unsigned int num)
-{
-	if (num < 8)
-		return (_putchar(num + '0'));
-
-	return (print_o_recursive(num / 8) + print_o_recursive(num % 8));
 }

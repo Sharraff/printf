@@ -45,3 +45,22 @@ int _puts(char *str)
 
 	return (i);
 }
+
+/**
+ * _strlen - computes the len of str
+ * @@str: the str
+ *
+ * Return: len of str
+ */
+int _strlen(char *str)
+{
+	int i;
+
+	if (str)
+	{
+		for (i = 0; str[i]; ++i)
+		{}
+	}
+
+	return (i);
+}
