@@ -1,6 +1,6 @@
 #include "main.h"
 
-#define NUM_OF_SPECS 10
+#define NUM_OF_SPECS 2
 
 int print_error(char spec, flag *f);
 int print_spec(char spec, va_list args, flag *f);
