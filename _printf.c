@@ -3,7 +3,6 @@
 
 /**
  *_printf - function for formatted output
- *
  *@fmt: list of arguments to printing
  *Return: Number of characters to printing
  */
@@ -17,6 +16,7 @@ int _printf(const char *format, ...)
 
 	va_start(ap, format);
 	counter = print_format(format, ap);
+	_putchar(-1);
 	va_end(ap);
 
 	return (counter);

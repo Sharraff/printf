@@ -3,12 +3,13 @@
 
 /**
  * print_s - a function that prints a string s
- *
  * @s: string to print
+ * @f: given flags
  * Return: 1
  */
-int print_s(va_list s)
+int print_s(va_list s, flag *f)
 {
+	(void)f;
 	char *str = va_arg(s, char *);
 	int i = 0;
 
