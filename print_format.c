@@ -1,7 +1,5 @@
 #include "main.h"
 
-#define NUM_OF_SPECS 4
-
 int print_error(char spec, flag *f);
 int validate_spec(char spec);
 int validate_flag(char flg, flag *f);
@@ -74,11 +72,6 @@ int validate_spec(char spec)
 
 	return (0);
 }
-
-/**
- * print_spec - selects the appropriate function to print the given spec
- * @spec: the given specifier
- * @args: input argument to be printed
 
 /**
  * print_error - prints the appropriate characters if the given spec is wrong

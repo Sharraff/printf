@@ -1,5 +1,6 @@
-#include "main.c"
+#include "main.h"
 
+#define NUM_OF_SPECS 4
 /**
  * print_spec - prints a spec
  * @args: input argument to be printed
