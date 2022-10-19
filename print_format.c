@@ -1,6 +1,9 @@
 #include "main.h"
 
+#define NUM_OF_SPECS 2
+
 int print_error(char spec, flag *f);
+int print_spec(char spec, va_list args, flag *f);
 int validate_spec(char spec);
 int validate_flag(char flg, flag *f);
 
@@ -13,35 +16,42 @@ int validate_flag(char flg, flag *f);
  */
 int print_format(const char *format, va_list args)
 {
-	const char *p;
-	flag flags = {0, 0, 0};
+	int length = 0;
+	int i = 0;
 
-	register int count = 0;
-
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	for (p = format; *p; p++)
+	if (format)
 	{
-		if (*p == '%')
+		while (format[i])
 		{
-			p++;
-			if (*p == '%')
+			if (format[i] == '%')
 			{
-				count += _putchar('%');
-				continue;
-			}
-			while (validate_flag(*p, &flags))
-				p++;
+				flag flags = {0, 0, 0};
 
-			count += validate_spec(*p)
-				? print_spec(*p, args, &flags)
-				: print_error(*p, &flags);
-		} else
-			count += _putchar(*p);
+				if (format[i + 1] == '\0')
+					return (-1);
+
+				i++;
+				while (validate_flag(format[i], &flags))
+					i++;
+
+				if (format[i] == '%')
+					length += _putchar('%');
+
+				if (validate_spec(format[i]))
+					length += print_spec(format[i], args, &flags);
+
+				else
+					length += print_error(format[i], &flags);
+			}
+			else
+			{
+				length += _putchar(format[i]);
+			}
+
+			i++;
+		}
 	}
-	return (count);
+	return (length);
 }
 
 /**
@@ -52,7 +62,7 @@ int print_format(const char *format, va_list args)
  */
 int validate_spec(char spec)
 {
-	char *specs = "csdi";
+	char *specs = "csidbxXoup";
 	int i;
 
 	for (i = 0; specs[i]; ++i)
@@ -62,6 +72,39 @@ int validate_spec(char spec)
 	}
 
 	return (0);
+}
+
+/**
+ * print_spec - selects the appropriate function to print the given spec
+ * @spec: the given specifier
+ * @args: input argument to be printed
+ * @f: pointer to the flag given
+ *
+ * Return: length of the characters printed
+ */
+int print_spec(char spec, va_list args, flag *f)
+{
+	fmt_spec f_specs[] = {
+		{'c', print_c},
+		{'s', print_s},
+		{'d', print_int},
+		{'i', print_int},
+		{'b', print_b},
+		{'x', print_x},
+		{'X', print_X},
+		{'o', print_o},
+		{'u', print_u},
+		{'p', print_p}
+	};
+	int i, length;
+
+	for (i = 0; i < NUM_OF_SPECS; ++i)
+	{
+		if (spec == f_specs[i].spec)
+			length = f_specs[i].func(args, f);
+	}
+
+	return (length);
 }
 
 /**

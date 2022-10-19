@@ -6,16 +6,34 @@
 
 /**
  * struct fg - struct for flags
- * @space: ' '
- * @plus: '+'
- * @hash: '#'
+ * @hash: # flag
+ * @space: ' ' flag
+ * @plus: + flag
+ *
  */
 typedef struct fg
 {
-	int space;
-	int plus;
-	int hash;
+        int hash;
+        int space;
+        int plus;
 } flag;
+
+int _putchar(char c);
+int _puts(char *str);
+int _strlen(char *str);
+char *convert(unsigned long int num, int base, int lowercase);
+int print_c(va_list c, flag *f);
+int print_s(va_list s, flag *f);
+int print_int(va_list integer, flag *f);
+int print_b(va_list b, flag *f);
+int print_format(const char *format, va_list args);
+int _printf(const char *format, ...);
+int print_x(va_list x, flag *f);
+int print_X(va_list X, flag *f);
+int print_o(va_list num, flag *f);
+int print_u(va_list integer, flag *f);
+int print_S(va_list S, flag *f);
+int print_p(va_list pointer, flag *f);
 
 /**
  * struct fmt - struct to match a specifier to a function that processes it
@@ -29,12 +47,5 @@ typedef struct fmt
 	int (*func)(va_list, flag *);
 } fmt_spec;
 
-int _putchar(char c);
-int print_c(va_list c, flag *f);
-int print_s(va_list s, flag *f);
-int print_spec(char spec, va_list args, flag *f);
-int print_format(const char *format, va_list args);
-int _printf(const char *format, ...);
-int print_int(va_list integer, flag *f);
 
 #endif

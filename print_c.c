@@ -3,7 +3,7 @@
 /**
  * print_c - prints a character on the stdout
  * @c: the character to be printed
- * @f: given flag
+ * @f: the given flags
  *
  * Return: the length of the char printed (1)
  */

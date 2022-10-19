@@ -1,9 +1,9 @@
 #include "main.h"
 #include <stdarg.h>
-
 /**
  *_printf - function for formatted output
- *@fmt: list of arguments to printing
+ *
+ *@format: list of arguments to printing
  *Return: Number of characters to printing
  */
 int _printf(const char *format, ...)
