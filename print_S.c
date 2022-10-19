@@ -11,6 +11,7 @@ int print_S(va_list S, flag *f)
 {
 	char *str = va_arg(S, char *);
 	int length = 0, i;
+	char *ch;
 
 	(void)f;
 	if (str == NULL)
