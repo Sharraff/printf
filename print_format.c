@@ -62,7 +62,7 @@ int print_format(const char *format, va_list args)
  */
 int validate_spec(char spec)
 {
-	char *specs = "csidbxXoup";
+	char *specs = "cs";
 	int i;
 
 	for (i = 0; specs[i]; ++i)
@@ -86,15 +86,7 @@ int print_spec(char spec, va_list args, flag *f)
 {
 	fmt_spec f_specs[] = {
 		{'c', print_c},
-		{'s', print_s},
-		{'d', print_int},
-		{'i', print_int},
-		{'b', print_b},
-		{'x', print_x},
-		{'X', print_X},
-		{'o', print_o},
-		{'u', print_u},
-		{'p', print_p}
+		{'s', print_s}
 	};
 	int i, length;
 
