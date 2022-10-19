@@ -34,6 +34,8 @@ int print_format(const char *format, va_list args)
 				count += _putchar('%');
 				continue;
 			}
+			if (*p == ' ')
+				count++;
 			while (validate_flag(*p, &flags))
 				p++;
 
