@@ -25,7 +25,9 @@ int print_format(const char *format, va_list args)
 		{
 			if (format[i] == '%')
 			{
-				flags = {0, 0, 0};
+				flags.hash = 0;
+				flags.plus = 0;
+				flags.space = 0;
 				if (format[i + 1] == '\0')
 					return (-1);
 
