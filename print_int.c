@@ -5,11 +5,13 @@ int print_positive_int(int num);
 /**
  * print_int - prints a given integer
  * @integer: the given integer to be printed
+ * @f: flags
  *
  * Return: the length of the integer printed
  */
 int print_int(va_list integer, flag *f)
 {
+	(void)f;
 	int length = 0, num;
 	unsigned int n;
 

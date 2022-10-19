@@ -9,6 +9,7 @@
  */
 int print_s(va_list s, flag *f)
 {
+	(void)f;
 	char *str = va_arg(s, char *);
 	int i = 0;
 

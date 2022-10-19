@@ -9,5 +9,6 @@
  */
 int print_c(va_list c, flag *f)
 {
+	(void)f;
 	return (_putchar(va_arg(c, int)));
 }
