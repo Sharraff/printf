@@ -10,7 +10,6 @@ int print_positive_int(int num);
  */
 int print_int(va_list integer, flag *f)
 {
-	(void)f;
 	int length = 0, num;
 	unsigned int n;
 
