@@ -4,27 +4,9 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-/**
- * struct fg - struct for flags
- * @hash: # flag
- * @space: ' ' flag
- * @plus: + flag
- *
- */
-typedef struct fg
-{
-        int hash;
-        int space;
-        int plus;
-} flag;
-
 int _putchar(char c);
-int _puts(char *str);
-int _strlen(char *str);
-char *convert(unsigned long int num, int base, int lowercase);
-int print_c(va_list c, flag *f);
-int print_s(va_list s, flag *f);
-int print_b(va_list b, flag *f);
+int print_c(va_list c);
+int print_s(va_list s);
 int print_format(const char *format, va_list args);
 int _printf(const char *format, ...);
 
@@ -37,7 +19,7 @@ int _printf(const char *format, ...);
 typedef struct fmt
 {
 	char spec;
-	int (*func)(va_list, flag *);
+	int (*func)(va_list);
 } fmt_spec;
 
 
