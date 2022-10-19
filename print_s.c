@@ -9,10 +9,10 @@
  */
 int print_s(va_list s, flag *f)
 {
-	(void)f;
 	char *str = va_arg(s, char *);
 	int i = 0;
 
+	(void)f;
 	if (str == NULL)
 		str = "(null)";
 	while (str[i])
