@@ -1,6 +1,7 @@
 #include "main.h"
 
 #define STDOUT 1
+
 /**
  * _putchar - writes a character to the standard output
  * @c: the character to be printed
@@ -9,12 +10,12 @@
  */
 int _putchar(char c)
 {
-	static int i;
+	static int i = 0;
 	static char buffer[1024];
 
-	if (c == -1 || i == 1024)
+	if (c == -1 || i >= 1024)
 	{
-		write(STDOUT, buffer, i);
+		write(STDOUT, &buffer, i);
 		i = 0;
 	}
 
@@ -54,12 +55,12 @@ int _puts(char *str)
  */
 int _strlen(char *str)
 {
-	int i;
+	int i = 0;
 
 	if (str)
 	{
-		for (i = 0; str[i]; ++i)
-		{}
+		while (str[i])
+			i++;
 	}
 
 	return (i);
