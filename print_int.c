@@ -9,17 +9,19 @@
  */
 int print_int(va_list integer, flag *f)
 {
-	int length = 0, num;
-	unsigned long int n;
+	int length = 0, num = 0;
+	unsigned int n = 0;
 
-	num = va_arg(integer, int);
+	n = va_arg(integer, int);
+	num = n;
 	if (f->plus && num >= 0)
 		length += _putchar('+');
 
 	if (num < 0)
 	{
 		length += _putchar('-');
-		n = -1 * (unsigned long int)num;
+		num *= -1;
+		n = num;
 	}
 
 	length += _puts(convert(n, 10, 0));

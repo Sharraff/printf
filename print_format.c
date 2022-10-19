@@ -16,44 +16,35 @@ int validate_flag(char flg, flag *f);
  */
 int print_format(const char *format, va_list args)
 {
-	int length = 0;
-	int i = 0;
+	const char *p;
+	flag flags = {0, 0, 0};
+	register int count = 0;
 
-	if (format)
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = format; *p; p++)
 	{
-		while (format[i])
+		if (*p == '%')
 		{
-			if (format[i] == '%')
+			p++;
+			if (*p == '%')
 			{
-				flag flags = {0, 0, 0};
-
-				if (format[i + 1] == '\0')
-					return (-1);
-
-				if (format[++i] == ' ')
-					length++;
-
-				while (validate_flag(format[i], &flags))
-					i++;
-
-				if (format[i] == '%')
-					length += _putchar('%');
-
-				else if (validate_spec(format[i]))
-					length += print_spec(format[i], args, &flags);
-
-				else
-					length += print_error(format[i], &flags);
+				count += _putchar('%');
+				continue;
 			}
-			else
-			{
-				length += _putchar(format[i]);
-			}
+			while (validate_flag(*p, &flags))
+				p++;
 
-			i++;
-		}
+			count += (validate_spec(*p))
+				? print_spec(*p, args, &flags)
+				: print_error(*p, &flags);
+		} else
+			count += _putchar(*p);
 	}
-	return (length);
+
+	return (count);
 }
 
 /**
