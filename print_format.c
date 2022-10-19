@@ -16,6 +16,7 @@ int validate_flag(char flg, flag *f);
  */
 int print_format(const char *format, va_list args)
 {
+	flag flags = {0, 0, 0};
 	int length = 0;
 	int i = 0;
 
@@ -25,8 +26,7 @@ int print_format(const char *format, va_list args)
 		{
 			if (format[i] == '%')
 			{
-				flag flags = {0, 0, 0};
-
+				flags = {0, 0, 0};
 				if (format[i + 1] == '\0')
 					return (-1);
 
