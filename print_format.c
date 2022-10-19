@@ -18,7 +18,7 @@ int print_format(const char *format, va_list args)
 {
 	const char *p;
 	flag flags = {0, 0, 0};
-	register int count = 0;
+	int count = 0;
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
