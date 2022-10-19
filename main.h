@@ -13,9 +13,9 @@
  */
 typedef struct fg
 {
-        int hash;
-        int space;
-        int plus;
+	int hash;
+	int space;
+	int plus;
 } flag;
 
 int _putchar(char c);
