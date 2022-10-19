@@ -1,9 +1,8 @@
 #include "main.h"
 
-#define NUM_OF_SPECS 2
+#define NUM_OF_SPECS 4
 
 int print_error(char spec, flag *f);
-int print_spec(char spec, va_list args, flag *f);
 int validate_spec(char spec);
 int validate_flag(char flg, flag *f);
 
@@ -62,7 +61,7 @@ int print_format(const char *format, va_list args)
  */
 int validate_spec(char spec)
 {
-	char *specs = "cs";
+	char *specs = "csdi";
 	int i;
 
 	for (i = 0; specs[i]; ++i)
@@ -78,26 +77,6 @@ int validate_spec(char spec)
  * print_spec - selects the appropriate function to print the given spec
  * @spec: the given specifier
  * @args: input argument to be printed
- * @f: pointer to the flag given
- *
- * Return: length of the characters printed
- */
-int print_spec(char spec, va_list args, flag *f)
-{
-	fmt_spec f_specs[] = {
-		{'c', print_c},
-		{'s', print_s}
-	};
-	int i, length;
-
-	for (i = 0; i < NUM_OF_SPECS; ++i)
-	{
-		if (spec == f_specs[i].spec)
-			length = f_specs[i].func(args, f);
-	}
-
-	return (length);
-}
 
 /**
  * print_error - prints the appropriate characters if the given spec is wrong

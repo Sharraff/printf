@@ -32,7 +32,9 @@ typedef struct fmt
 int _putchar(char c);
 int print_c(va_list c, flag *f);
 int print_s(va_list s, flag *f);
+int print_spec(char spec, va_list args, flag *f);
 int print_format(const char *format, va_list args);
 int _printf(const char *format, ...);
+int print_int(va_list integer, flag *f);
 
 #endif
