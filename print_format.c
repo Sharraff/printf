@@ -117,7 +117,7 @@ int print_error(char spec, char prev_char)
 	int length = 0;
 
 	length += _putchar('%');
-	if (pre_char == ' ')
+	if (prev_char == ' ')
 		_putchar(' ');
 
 	if (spec)
