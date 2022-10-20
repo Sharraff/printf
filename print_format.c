@@ -26,9 +26,9 @@ int print_format(const char *format, va_list args)
 		return (-1);
 	for (p = format; *p; p++)
 	{
-		flags->hash = 0;
-		flags->space = 0;
-		flags->plus = 0;
+		flags.hash = 0;
+		flags.space = 0;
+		flags.plus = 0;
 
 		if (*p == '%')
 		{
