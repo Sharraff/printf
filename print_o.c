@@ -12,8 +12,11 @@ int print_o(va_list num, flag *f)
 	int length = 0;
 	unsigned long int n = va_arg(num, unsigned int);
 
-	if (f->hash)
-		length += _putchar('0');
+	if (n > 0)
+	{
+		if (f->hash)
+			length += _putchar('0');
+	}
 
 	length += _puts(convert(n, 8, 0));
 
