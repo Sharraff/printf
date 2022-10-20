@@ -36,6 +36,7 @@ int print_format(const char *format, va_list args)
 			}
 			if (*p == ' ')
 				count++;
+
 			while (validate_flag(*p, &flags))
 				p++;
 
