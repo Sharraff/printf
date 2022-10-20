@@ -17,7 +17,7 @@ int print_int(va_list integer, flag *f)
 	if (f->plus && num >= 0)
 		length += _putchar('+');
 
-	if (f->space && n >= 0)
+	if (f->space && num >= 0)
 		length += _putchar(' ');
 
 	if (num < 0)
