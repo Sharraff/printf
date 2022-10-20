@@ -17,7 +17,7 @@ int validate_flag(char flg, flag *f);
 int print_format(const char *format, va_list args)
 {
 	const char *p;
-	flag flags = {0, 0, 0};
+	flag flags;
 	int count = 0;
 
 	if (!format || (format[0] == '%' && !format[1]))
@@ -28,7 +28,7 @@ int print_format(const char *format, va_list args)
 	{
 		flags->hash = 0;
 		flags->space = 0;
-		flages-plus = 0;
+		flags->plus = 0;
 
 		if (*p == '%')
 		{
