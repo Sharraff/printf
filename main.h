@@ -24,6 +24,7 @@ int _strlen(char *str);
 char *convert(unsigned long int num, int base, int lowercase);
 void sort_flags(flag *flags);
 int print_c(va_list c, flag *f);
+int print_per_symb(va_list va_lst, flag *f);
 int print_s(va_list s, flag *f);
 int print_int(va_list integer, flag *f);
 int print_b(va_list b, flag *f);
