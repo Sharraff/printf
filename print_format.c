@@ -26,6 +26,10 @@ int print_format(const char *format, va_list args)
 		return (-1);
 	for (p = format; *p; p++)
 	{
+		flags->hash = 0;
+		flags->space = 0;
+		flages-plus = 0;
+
 		if (*p == '%')
 		{
 			p++;
@@ -34,8 +38,6 @@ int print_format(const char *format, va_list args)
 				count += _putchar('%');
 				continue;
 			}
-			if (*p == ' ')
-				count++;
 
 			while (validate_flag(*p, &flags))
 				p++;
@@ -118,7 +120,7 @@ int print_error(char spec, char prev_char)
 
 	length += _putchar('%');
 	if (prev_char == ' ')
-		_putchar(' ');
+		length += _putchar(' ');
 
 	if (spec)
 		length += _putchar(spec);

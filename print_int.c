@@ -18,7 +18,7 @@ int print_int(va_list integer, flag *f)
 		length += _putchar('+');
 
 	if (f->space)
-		_putchar(' ');
+		length += _putchar(' ');
 
 	if (num < 0)
 	{
