@@ -2,7 +2,7 @@
 
 #define NUM_OF_SPECS 11
 
-int print_error(char spec, flag *f);
+int print_error(char spec, char prev_char);
 int print_spec(char spec, va_list args, flag *f);
 int validate_spec(char spec);
 int validate_flag(char flg, flag *f);
@@ -43,7 +43,7 @@ int print_format(const char *format, va_list args)
 			sort_flags(&flags);
 			count += (validate_spec(*p))
 				? print_spec(*p, args, &flags)
-				: print_error(*p, &flags);
+				: print_error(*p, *(p - 1));
 		} else
 			count += _putchar(*p);
 	}
@@ -108,16 +108,16 @@ int print_spec(char spec, va_list args, flag *f)
 /**
  * print_error - prints the appropriate characters if the given spec is wrong
  * @spec: the given specifier
- * @f: pointer to the given flag
+ * @prev_char: previous char to the spec
  *
  * Return: the length of the printed characters
  */
-int print_error(char spec, flag *f)
+int print_error(char spec, char prev_char)
 {
 	int length = 0;
 
 	length += _putchar('%');
-	if (f->space)
+	if (pre_char == ' ')
 		_putchar(' ');
 
 	if (spec)
