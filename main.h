@@ -22,6 +22,7 @@ int _putchar(char c);
 int _puts(char *str);
 int _strlen(char *str);
 char *convert(unsigned long int num, int base, int lowercase);
+void sort_flags(flag *flags);
 int print_c(va_list c, flag *f);
 int print_s(va_list s, flag *f);
 int print_int(va_list integer, flag *f);

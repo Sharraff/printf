@@ -39,6 +39,7 @@ int print_format(const char *format, va_list args)
 			while (validate_flag(*p, &flags))
 				p++;
 
+			sort_flags(&flags);
 			count += (validate_spec(*p))
 				? print_spec(*p, args, &flags)
 				: print_error(*p, &flags);
@@ -118,7 +119,9 @@ int print_error(char spec, flag *f)
 	if (f->space)
 		_putchar(' ');
 
-	length += _putchar(spec);
+	if (spec)
+		length += _putchar(spec);
+
 	return (length);
 }
 
