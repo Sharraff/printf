@@ -15,6 +15,12 @@ int rot13(va_list s, flag *f)
 	char *str = va_arg(s, char *);
 
 	(void)f;
+	if (str == NULL)
+	{
+		length += _puts("(null)");
+		return;
+	}
+
 	for (i = 0; str[i]; ++i)
 	{
 		for (j = 0; encode0[j]; ++j)
