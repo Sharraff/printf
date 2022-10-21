@@ -35,6 +35,9 @@ int print_format(const char *format, va_list args)
 		if (*p == '%')
 		{
 			p++;
+			while (validate_flag(*p, &flags))
+				p++;
+
 			sort_flags(&flags);
 			count += (validate_spec(*p))
 				? print_spec(*p, args, &flags)
