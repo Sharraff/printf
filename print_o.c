@@ -10,7 +10,7 @@
 int print_o(va_list num, flag *f)
 {
 	int length = 0;
-	unsigned long int n = va_arg(num, unsigned int);
+	unsigned long int n = va_arg(num, unsigned long int);
 
 	if (n > 0)
 	{

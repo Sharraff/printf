@@ -16,6 +16,8 @@ typedef struct fg
 	int hash;
 	int space;
 	int plus;
+	int h;
+	int l;
 } flag;
 
 int _putchar(char c);
@@ -36,6 +38,7 @@ int print_o(va_list num, flag *f);
 int print_u(va_list integer, flag *f);
 int print_S(va_list S, flag *f);
 int print_p(va_list pointer, flag *f);
+int print_error_length_mod(const char *str);
 
 /**
  * struct fmt - struct to match a specifier to a function that processes it
