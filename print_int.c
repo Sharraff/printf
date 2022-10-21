@@ -9,12 +9,11 @@
  */
 int print_int(va_list integer, flag *f)
 {
-	int length = 0, num;
+	int length = 0, num = 0;
 	unsigned long int n = 0;
 
-	n = va_arg(integer, unsigned long int);
+	n = va_arg(integer, int);
 	num = n;
-
 	if (f->plus && num >= 0)
 		length += _putchar('+');
 
