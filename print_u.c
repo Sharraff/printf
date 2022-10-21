@@ -9,7 +9,7 @@
  */
 int print_u(va_list integer, flag *f)
 {
-	unsigned long int num = va_arg(integer, unsigned int);
+	unsigned long int num = va_arg(integer, unsigned long int);
 
 	(void)f;
 	return (_puts(convert(num, 10, 0)));

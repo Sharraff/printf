@@ -10,7 +10,7 @@
 int print_X(va_list X, flag *f)
 {
 	int length = 0;
-	unsigned long int n = va_arg(X, unsigned int);
+	unsigned long int n = va_arg(X, unsigned long int);
 
 	if (n > 0)
 	{
