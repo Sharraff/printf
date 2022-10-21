@@ -1,6 +1,6 @@
 #include "func_def.h"
 
-#define NUM_OF_SPECS 12
+#define NUM_OF_SPECS 14
 
 int print_error(char spec, char prev_char);
 int print_spec(char spec, va_list args, flag *f);
@@ -67,7 +67,7 @@ int print_format(const char *format, va_list args)
  */
 int validate_spec(char spec)
 {
-	char *specs = "c%sidbxXoupS";
+	char *specs = "c%sidbxXoupSrR";
 	int i;
 
 	for (i = 0; specs[i]; ++i)
@@ -101,7 +101,9 @@ int print_spec(char spec, va_list args, flag *f)
 		{'o', print_o},
 		{'u', print_u},
 		{'p', print_p},
-		{'S', print_S}
+		{'S', print_S},
+		{'r', rev_string},
+		{'R', rot13}
 	};
 	int i, length;
 

@@ -39,6 +39,8 @@ int print_u(va_list integer, flag *f);
 int print_S(va_list S, flag *f);
 int print_p(va_list pointer, flag *f);
 int print_error_length_mod(const char *str);
+int rot13(va_list s, flag *f);
+int rev_string(va_list str, flag *f);
 
 /**
  * struct fmt - struct to match a specifier to a function that processes it
