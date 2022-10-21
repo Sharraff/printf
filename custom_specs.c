@@ -86,7 +86,7 @@ int rev_string(va_list str, flag *f)
 	int len = _strlen(s);
 
 	(void)f;
-	if (s == NULL)
+	if (s != NULL)
 		print_rev_recursive(s, len);
 
 	return (len);
