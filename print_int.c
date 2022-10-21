@@ -14,7 +14,7 @@ int print_int(va_list integer, flag *f)
 	unsigned long int n = 0;
 
 	n = va_arg(integer, unsigned long int);
-	num = n;
+	num = (long int)n;
 
 	if (f->plus && num >= 0)
 		length += _putchar('+');
