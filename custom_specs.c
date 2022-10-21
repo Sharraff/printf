@@ -53,27 +53,6 @@ int rot13(va_list s, flag *f)
 }
 
 /**
- * print_rev_recursive - prints reverse string
- * @str: string
- * @len: strlen
- *
- */
-void print_rev_recursive(char *str, int len)
-{
-	if (str)
-	{
-		if (len == 1)
-			_putchar(*str);
-
-		else
-		{
-			_putchar(*(str + len - 1));
-			print_rev_recursive(str, len - 1);
-		}
-	}
-}
-
-/**
  * rev_string - reverse a given string
  * @str: the string to be reversed
  * @f: pointer to flag
@@ -83,14 +62,17 @@ void print_rev_recursive(char *str, int len)
 int rev_string(va_list str, flag *f)
 {
 	char *s = va_arg(str, char *);
-	int len;
+	int i = 0, j;
 
 	(void)f;
 	if (s == NULL)
-		return (_puts("(null)"));
+		s = "(null)";
 
-	len = _strlen(s);
-	print_rev_recursive(s, len);
+	while (s[i])
+		i++;
 
-	return (len);
+	for (j = i - 1; j >= 0; --j)
+		_putchar(s[j]);
+
+	return (i);
 }
