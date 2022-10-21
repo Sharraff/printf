@@ -46,6 +46,7 @@ int rev_string(va_list str, flag *f)
 	int l = len / 2;
 	char temp;
 
+	(void)f;
 	for (i = 0; i < l; ++i)
 	{
 		temp = s[j];
