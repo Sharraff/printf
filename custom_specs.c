@@ -16,10 +16,7 @@ int rot13(va_list s, flag *f)
 
 	(void)f;
 	if (str == NULL)
-	{
-		length += _puts("(null)");
-		return;
-	}
+		return (_puts("(null)"));
 
 	for (i = 0; str[i]; ++i)
 	{
