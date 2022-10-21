@@ -10,7 +10,7 @@
 int print_int(va_list integer, flag *f)
 {
 	int length = 0;
-	int num;
+	long int num;
 	unsigned long int n = 0;
 
 	if (f->l)
