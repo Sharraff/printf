@@ -9,7 +9,8 @@
  */
 int print_int(va_list integer, flag *f)
 {
-	int length = 0, num;
+	int length = 0;
+	long int num;
 	unsigned long int n = 0;
 
 	n = va_arg(integer, unsigned long int);
