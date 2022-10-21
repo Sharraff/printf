@@ -83,11 +83,14 @@ void print_rev_recursive(char *str, int len)
 int rev_string(va_list str, flag *f)
 {
 	char *s = va_arg(str, char *);
-	int len = _strlen(s);
+	int len;
 
 	(void)f;
 	if (s != NULL)
+	{
+		len = _strlen(s);
 		print_rev_recursive(s, len);
+	}
 
 	return (len);
 }
