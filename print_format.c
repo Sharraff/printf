@@ -1,4 +1,4 @@
-#include "func_def.h"
+#include "main.h"
 
 #define NUM_OF_SPECS 14
 
@@ -17,7 +17,6 @@ int validate_flag(char flg, flag *f);
 int print_format(const char *format, va_list args)
 {
 	const char *p;
-	const char *start;
 	flag flags;
 	int count = 0;
 
@@ -33,21 +32,7 @@ int print_format(const char *format, va_list args)
 
 		if (*p == '%')
 		{
-			start = p;
 			p++;
-			while (validate_flag(*p, &flags))
-				p++;
-
-			if (!non_custom_spec(*p))
-			{
-				int len;
-
-				len = print_error_length_mod(start);
-				count += len;
-				p = start + len + 1;
-				continue;
-			}
-
 			sort_flags(&flags);
 			count += (validate_spec(*p))
 				? print_spec(*p, args, &flags)
