@@ -3,6 +3,7 @@
 
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
  * struct fg - struct for flags
@@ -18,11 +19,17 @@ typedef struct fg
 	int plus;
 	int h;
 	int l;
+	int width;
+	int zero;
+	int minus;
+	int precision;
 } flag;
 
 int _putchar(char c);
 int _puts(char *str);
 int _strlen(char *str);
+char *str_concat(char *s1, char *s2);
+int _isdigit(char ch);
 char *convert(unsigned long int num, int base, int lowercase);
 void sort_flags(flag *flags);
 int print_c(va_list c, flag *f);
@@ -42,6 +49,10 @@ int print_error_length_mod(const char *str);
 int rot13(va_list s, flag *f);
 int rev_string(va_list str, flag *f);
 void initialize_flag(flag *f);
+int check_width(char flg, va_list spec, flag *f);
+char *print_width(char *str, flag *f);
+char *print_precision(char *str, flag *f, int negative);
+int validate_precision(char ch, va_list spec, flag *f);
 
 /**
  * struct fmt - struct to match a specifier to a function that processes it

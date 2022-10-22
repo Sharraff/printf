@@ -33,6 +33,9 @@ int print_format(const char *format, va_list args)
 			while (validate_flag(args, *p, &flags))
 				p++;
 
+			while(validate_precision(*p, args, &flags))
+				p++;
+
 			sort_flags(&flags);
 			count += (validate_spec(*p))
 				? print_spec(*p, args, &flags)
@@ -163,21 +166,9 @@ int validate_flag(va_list num, char flg, flag *f)
 		f->h = 1;
 		i = 1;
 	}
-	else if (flg == '0')
-	{
-		if (!f->width)
-			f->zero = 1;
-		else
-			f->width = f->width * 10 + (flg - '0');
-		i = 1;
-	}
-	else if (_isdigit(flg))
-		f->width = f->width * 10 + (flg - '0');
-	i = 1;
-	else if (flg == '*')
-	{
-		f->width = va_arg(num, int);
-		i = 1;
-	}
+
+	else
+		i = check_width(flg, num, f);
+
 	return (i);
 }
