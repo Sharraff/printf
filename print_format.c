@@ -5,7 +5,7 @@
 int print_error(char spec, char prev_char);
 int print_spec(char spec, va_list args, flag *f);
 int validate_spec(char spec);
-int validate_flag(char flg, flag *f);
+int validate_flag(va_list num, char flg, flag *f);
 
 /**
  * print_format - prints the format string to the stdout
@@ -26,16 +26,11 @@ int print_format(const char *format, va_list args)
 		return (-1);
 	for (p = format; *p; p++)
 	{
-		flags.hash = 0;
-		flags.space = 0;
-		flags.plus = 0;
-		flags.h = 0;
-		flags.l = 0;
-
+		initialize_flag(&flags);
 		if (*p == '%')
 		{
 			p++;
-			while (validate_flag(*p, &flags))
+			while (validate_flag(args, *p, &flags))
 				p++;
 
 			sort_flags(&flags);
@@ -134,34 +129,55 @@ int print_error(char spec, char prev_char)
  *
  * Return: 1 if there is flag, 0 other wise
  */
-int validate_flag(char flg, flag *f)
+int validate_flag(va_list num, char flg, flag *f)
 {
 	int i = 0;
 
-	switch (flg)
+	if (flg == ' ')
 	{
-		case '+':
-			f->plus = 1;
-			i = 1;
-			break;
-		case ' ':
-			f->space = 1;
-			i = 1;
-			break;
-		case '#':
-			f->hash = 1;
-			i = 1;
-			break;
-	case 'l':
+		f->space = 1;
+		i = 1;
+	}
+	else if (flg == '#')
+	{
+		f->hash = 1;
+		i = 1;
+	}
+	else if (flg == '+')
+	{
+		f->plus = 1;
+		i = 1;
+	}
+	else if (flg == '-')
+	{
+		f->minus = 1;
+		i = 1;
+	}
+	else if (flg == 'l')
+	{
 		f->l = 1;
 		i = 1;
-		break;
-	case 'h':
+	}
+	else if (flg == 'h')
+	{
 		f->h = 1;
 		i = 1;
-		break;
-
 	}
-
+	else if (flg == '0')
+	{
+		if (!f->width)
+			f->zero = 1;
+		else
+			f->width = f->width * 10 + (flg - '0');
+		i = 1;
+	}
+	else if (_isdigit(flg))
+		f->width = f->width * 10 + (flg - '0');
+	i = 1;
+	else if (flg == '*')
+	{
+		f->width = va_arg(num, int);
+		i = 1;
+	}
 	return (i);
 }
