@@ -9,7 +9,7 @@
  */
 int print_int(va_list integer, flag *f)
 {
-	int length = 0, negative = 0;
+	int negative = 0;
 	long int num;
 	unsigned long int n = 0;
 	char *s;
@@ -42,7 +42,7 @@ int print_int(va_list integer, flag *f)
 		if (f->space && !negative)
 			s = str_concat(" ", s);
 
-		if (!negative)
+		if (negative)
 			s = str_concat("-", s);
 	}
 
