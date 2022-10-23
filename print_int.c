@@ -37,7 +37,7 @@ int print_int(va_list integer, flag *f)
 			s = print_width(s, f);
 
 		if (f->plus && !negative)
-			s = str_concat("+", s);;
+			s = str_concat("+", s);
 
 		if (f->space && !negative)
 			s = str_concat(" ", s);

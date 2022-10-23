@@ -33,7 +33,7 @@ int print_format(const char *format, va_list args)
 			while (validate_flag(args, *p, &flags))
 				p++;
 
-			while(validate_precision(*p, args, &flags))
+			while (validate_precision(*p, args, &flags))
 				p++;
 
 			sort_flags(&flags);
@@ -127,6 +127,7 @@ int print_error(char spec, char prev_char)
 
 /**
  * validate_flag - checks the given flags
+ * @num: ...
  * @flg: the given flag
  * @f: pointer to flags
  *

@@ -46,7 +46,7 @@ int check_width(char flg, va_list spec, flag *f)
 		i = 1;
 	}
 
-	return i;
+	return (i);
 }
 
 /**

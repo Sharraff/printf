@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_unsigned - prints an unsigned int in octal format
+ * print_unsign - prints an unsigned int in octal format
  * @num: given unsigned int
  * @f: pointer to the given
  * @base: number base
@@ -9,7 +9,7 @@
  *
  * Return: the length of the characters printed
  */
-int print_unsigned(va_list num, flag *f, int base, int lowercase)
+int print_unsign(va_list num, flag *f, int base, int lowercase)
 {
 	unsigned long int n = va_arg(num, unsigned long int);
 	char *s;
@@ -50,7 +50,7 @@ int print_unsigned(va_list num, flag *f, int base, int lowercase)
  */
 int print_o(va_list num, flag *f)
 {
-	return (print_unsigned(num, f, 8, 0));
+	return (print_unsign(num, f, 8, 0));
 }
 
 /**
@@ -62,7 +62,7 @@ int print_o(va_list num, flag *f)
  */
 int print_u(va_list integer, flag *f)
 {
-	return (print_unsigned(integer, f, 10, 0));
+	return (print_unsign(integer, f, 10, 0));
 }
 
 /**
@@ -74,7 +74,7 @@ int print_u(va_list integer, flag *f)
  */
 int print_x(va_list x, flag *f)
 {
-	return (print_unsigned(x, f, 16, 1));
+	return (print_unsign(x, f, 16, 1));
 }
 
 /**
@@ -86,5 +86,5 @@ int print_x(va_list x, flag *f)
  */
 int print_X(va_list X, flag *f)
 {
-	return (print_unsigned(X, f, 16, 0));
+	return (print_unsign(X, f, 16, 0));
 }
